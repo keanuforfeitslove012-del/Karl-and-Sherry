@@ -15,15 +15,9 @@
             color: white;
         }
         
-        .font-script {
-            font-family: 'Great Vibes', cursive;
-        }
+        .font-script { font-family: 'Great Vibes', cursive; }
+        .font-times { font-family: 'Times New Roman', Times, serif; }
 
-        .font-times {
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        /* Background Animation */
         .bg-animate {
             background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #0f172a);
             background-size: 400% 400%;
@@ -36,18 +30,13 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Glassmorphism */
         .glass {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Heartbeat Animation */
-        .heartbeat {
-            animation: beat 1.5s infinite;
-        }
+        .heartbeat { animation: beat 1.5s infinite; }
         @keyframes beat {
             0% { transform: scale(1); }
             14% { transform: scale(1.1); }
@@ -56,66 +45,6 @@
             70% { transform: scale(1); }
         }
 
-        /* Box Flip Animation */
-        .flip-card {
-            perspective: 1000px;
-            cursor: pointer;
-        }
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-style: preserve-3d;
-        }
-        .flip-card.flipped .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-        }
-        .flip-card-front {
-            background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
-            border: 2px solid #fbcfe8;
-        }
-        .flip-card-back {
-            background: linear-gradient(135deg, #4c1d95 0%, #312e81 100%);
-            color: white;
-            transform: rotateY(180deg);
-            padding: 1rem;
-            border: 2px solid #c4b5fd;
-        }
-
-        /* Firefly Animation */
-        .firefly {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background-color: #fbbf24;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #fbbf24, 0 0 20px #fbbf24;
-            opacity: 0;
-            animation: fly 10s infinite linear;
-            pointer-events: none;
-        }
-        @keyframes fly {
-            0% { transform: translate(0, 0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translate(var(--tx), var(--ty)); opacity: 0; }
-        }
-
-        /* Heart Burst Particles */
         .particle {
             position: absolute;
             pointer-events: none;
@@ -127,203 +56,102 @@
             100% { transform: translate(var(--dx), var(--dy)) scale(1.5); opacity: 0; }
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #be185d; 
-            border-radius: 4px;
-        }
-
-        /* Clown Box Styles */
-        .clown-box {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .clown-box:hover {
-            transform: scale(1.05);
-        }
-        .clown-reveal {
-            animation: slideUp 0.6s ease-out forwards;
-        }
-        @keyframes slideUp {
-            0% { transform: translateY(20px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-
-        /* Butterfly Styles */
+        /* Butterfly */
         .butterfly-container {
             position: fixed;
             bottom: 30px;
             right: 30px;
             z-index: 40;
             cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .butterfly-container:hover {
-            transform: scale(1.1);
         }
         .butterfly {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             position: relative;
             animation: flutter 2s ease-in-out infinite;
-            filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.6));
+            filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.6));
         }
         @keyframes flutter {
             0%, 100% { transform: rotate(-5deg) translateY(0px); }
-            25% { transform: rotate(5deg) translateY(-5px); }
-            50% { transform: rotate(-3deg) translateY(0px); }
-            75% { transform: rotate(3deg) translateY(-3px); }
+            50% { transform: rotate(5deg) translateY(-5px); }
         }
         .wing {
             position: absolute;
-            width: 35px;
-            height: 50px;
-            background: linear-gradient(135deg, #f472b6 0%, #db2777 50%, #be185d 100%);
+            width: 25px;
+            height: 35px;
+            background: linear-gradient(135deg, #f472b6, #db2777);
             border-radius: 50% 10% 50% 10%;
             opacity: 0.9;
-            box-shadow: 0 0 20px rgba(244, 114, 182, 0.5);
         }
         .wing.left {
             left: 5px;
-            top: 15px;
+            top: 12px;
             transform-origin: right center;
-            animation: flapLeft 0.4s ease-in-out infinite;
+            animation: flap 0.4s ease-in-out infinite;
         }
         .wing.right {
             right: 5px;
-            top: 15px;
+            top: 12px;
             transform-origin: left center;
             transform: scaleX(-1);
-            animation: flapRight 0.4s ease-in-out infinite;
+            animation: flap 0.4s ease-in-out infinite;
         }
-        @keyframes flapLeft {
+        @keyframes flap {
             0%, 100% { transform: rotateY(0deg); }
             50% { transform: rotateY(60deg); }
         }
+        .wing.right { animation-name: flapRight; }
         @keyframes flapRight {
             0%, 100% { transform: scaleX(-1) rotateY(0deg); }
             50% { transform: scaleX(-1) rotateY(60deg); }
         }
         .butterfly-body {
             position: absolute;
-            width: 8px;
-            height: 40px;
-            background: linear-gradient(to bottom, #fcd34d, #f59e0b);
-            border-radius: 50%;
-            left: 50%;
-            top: 20px;
-            transform: translateX(-50%);
-            z-index: 2;
-        }
-        .butterfly-head {
-            position: absolute;
-            width: 12px;
-            height: 12px;
+            width: 6px;
+            height: 30px;
             background: #fcd34d;
             border-radius: 50%;
             left: 50%;
             top: 15px;
             transform: translateX(-50%);
-            z-index: 3;
+            z-index: 2;
         }
-        .antenna {
-            position: absolute;
-            width: 2px;
-            height: 15px;
-            background: #fcd34d;
-            top: -10px;
-            border-radius: 2px;
-        }
-        .antenna.left { left: 2px; transform: rotate(-20deg); }
-        .antenna.right { right: 2px; transform: rotate(20deg); }
-        
         .play-btn {
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            width: 30px;
-            height: 30px;
+            width: 20px;
+            height: 20px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 10;
-            box-shadow: 0 0 15px rgba(236, 72, 153, 0.8);
-        }
-        .play-btn::after {
-            content: '▶';
+            font-size: 8px;
             color: #be185d;
-            font-size: 12px;
-            margin-left: 2px;
-        }
-        .play-btn.playing::after {
-            content: '❚❚';
-            font-size: 10px;
-            margin-left: 0;
         }
 
-        /* Music Player Popup */
         .music-popup {
             position: fixed;
-            bottom: 120px;
+            bottom: 100px;
             right: 30px;
-            width: 350px;
+            width: 300px;
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(236, 72, 153, 0.3);
-            border-radius: 20px;
-            padding: 20px;
+            border-radius: 15px;
+            padding: 15px;
             z-index: 45;
-            transform: translateY(20px);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            display: none;
         }
-        .music-popup.active {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-        }
-        .music-popup h4 {
-            color: #f472b6;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-        .close-popup {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: #f472b6;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .close-popup:hover {
-            transform: scale(1.2);
-        }
+        .music-popup.active { display: block; }
     </style>
 </head>
-<body class="bg-animate min-h-screen relative selection:bg-pink-500 selection:text-white">
+<body class="bg-animate min-h-screen relative">
 
-    <!-- Canvas for Waterfall Effect -->
-    <canvas id="waterfallCanvas" class="fixed top-0 left-0 w-full h-full -z-10 opacity-40"></canvas>
-
-    <!-- Fireflies Container -->
-    <div id="fireflies" class="fixed top-0 left-0 w-full h-full pointer-events-none -z-5 overflow-hidden"></div>
-
-    <!-- Audio Context Starter Overlay -->
-    <div id="startOverlay" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity duration-500">
+    <div id="startOverlay" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
         <div class="text-center">
             <h1 class="text-4xl font-script text-pink-400 mb-4 animate-pulse">A Surprise for Sherry</h1>
             <button id="startBtn" class="px-8 py-3 bg-pink-600 hover:bg-pink-500 text-white rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(236,72,153,0.6)]">
@@ -332,34 +160,24 @@
         </div>
     </div>
 
-    <!-- Butterfly Music Player -->
-    <div class="butterfly-container" id="butterflyBtn" title="Play our song">
+    <div class="butterfly-container" id="butterflyBtn">
         <div class="butterfly">
             <div class="wing left"></div>
             <div class="wing right"></div>
             <div class="butterfly-body"></div>
-            <div class="butterfly-head">
-                <div class="antenna left"></div>
-                <div class="antenna right"></div>
-            </div>
-            <div class="play-btn" id="playIndicator"></div>
+            <div class="play-btn" id="playIcon">▶</div>
         </div>
     </div>
 
-    <!-- Music Player Popup -->
     <div class="music-popup" id="musicPopup">
-        <button class="close-popup" id="closeMusicPopup">×</button>
-        <h4 class="font-script text-2xl">Our Special Song 🎵</h4>
-        <div id="youtubePlayer"></div>
-        <div class="mt-4 text-center text-pink-200 text-sm">
-            <p>Click the butterfly to play/pause</p>
+        <div class="flex justify-between items-center mb-3">
+            <h4 class="font-script text-xl text-pink-400">Our Song 🎵</h4>
+            <button id="closeMusic" class="text-pink-400 text-xl hover:text-pink-300">×</button>
         </div>
+        <div id="player"></div>
     </div>
 
-    <!-- Main Content -->
     <main class="relative z-10 container mx-auto px-4 py-8 max-w-4xl">
-        
-        <!-- Header -->
         <header class="text-center mb-12 pt-8">
             <h1 class="text-5xl md:text-7xl font-script text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 drop-shadow-[0_0_10px_rgba(236,72,153,0.5)] mb-4">
                 My Dearest Sherry
@@ -367,7 +185,6 @@
             <p class="text-pink-200 text-lg tracking-widest uppercase opacity-80">Happy Valentine's Day</p>
         </header>
 
-        <!-- The Big Heart -->
         <div class="flex justify-center mb-16 relative">
             <div id="bigHeartContainer" class="relative group cursor-pointer">
                 <div id="bigHeart" class="text-9xl md:text-[10rem] filter drop-shadow-[0_0_30px_rgba(225,29,72,0.6)] transition-transform duration-100 select-none heartbeat">
@@ -378,20 +195,18 @@
                         Tap me till I break!
                     </span>
                 </div>
-                <!-- Health Bar -->
                 <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-32 h-2 bg-gray-700 rounded-full overflow-hidden border border-gray-600">
                     <div id="heartHealth" class="h-full bg-gradient-to-r from-pink-500 to-red-600 w-full transition-all duration-200"></div>
                 </div>
             </div>
         </div>
 
-        <!-- Clown Box Section -->
         <section class="mb-16">
-            <div id="clownBox" class="clown-box glass rounded-2xl p-8 max-w-md mx-auto text-center border-2 border-pink-500/30 hover:border-pink-400/60 transition-all">
+            <div id="clownBox" class="glass rounded-2xl p-8 max-w-md mx-auto text-center border-2 border-pink-500/30 hover:border-pink-400/60 transition-all cursor-pointer">
                 <div id="clownClosed">
                     <div class="text-6xl mb-4">🎁</div>
                     <h3 class="text-2xl font-bold text-pink-300 mb-2">Tap Me!</h3>
-                    <p class="text-pink-200/70 text-sm">A special message awaits inside...</p>
+                    <p class="text-pink-200/70 text-sm">A special message awaits...</p>
                 </div>
                 <div id="clownOpen" class="hidden">
                     <div class="text-6xl mb-4 animate-bounce">🤡</div>
@@ -403,15 +218,14 @@
                             <span class="text-pink-300 font-bold">Karl</span> 💕"
                         </div>
                     </div>
-                    <button id="closeClownMsg" class="mt-4 text-sm text-pink-300 hover:text-pink-200 underline cursor-pointer bg-transparent border-none">
+                    <button id="closeClownMsg" class="mt-4 text-sm text-pink-300 hover:text-pink-200 underline bg-transparent border-none cursor-pointer">
                         Close message
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- Love Letter -->
-        <section class="glass rounded-2xl p-8 md:p-12 mb-16 shadow-2xl transform hover:scale-[1.01] transition-transform duration-500 border-t border-white/10">
+        <section class="glass rounded-2xl p-8 md:p-12 mb-16 shadow-2xl border-t border-white/10">
             <div class="prose prose-lg prose-invert mx-auto text-center">
                 <p class="text-xl md:text-2xl leading-relaxed text-pink-100 font-light">
                     My Love, <br><br>
@@ -426,115 +240,139 @@
         <footer class="text-center text-pink-300/50 text-sm pb-8">
             <p>Made with 💖 for Sherry</p>
         </footer>
-
     </main>
 
-    <!-- YouTube IFrame API -->
     <script src="https://www.youtube.com/iframe_api"></script>
-    
     <script>
-        // --- YouTube Player Setup ---
-        let ytPlayer;
-        let isPlaying = false;
-        
-        function onYouTubeIframeAPIReady() {
-            ytPlayer = new YT.Player('youtubePlayer', {
-                height: '200',
-                width: '100%',
-                videoId: 'xyUQKDE57Ag',
-                playerVars: {
-                    'playsinline': 1,
-                    'controls': 1,
-                    'rel': 0
-                },
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        }
-
-        function onPlayerReady(event) {
-            // Player is ready
-        }
-
-        function onPlayerStateChange(event) {
-            if (event.data == YT.PlayerState.PLAYING) {
-                isPlaying = true;
-                document.getElementById('playIndicator').classList.add('playing');
-            } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
-                isPlaying = false;
-                document.getElementById('playIndicator').classList.remove('playing');
-            }
-        }
-
-        // --- Audio Setup (Tone.js) - Soothing Sounds ---
-        let synth, chimeSynth, ambientSynth;
-        let isAudioReady = false;
+        // Audio
+        let chimeSynth, isAudioReady = false;
+        let ytPlayer, isPlaying = false;
+        let popupOpen = false;
 
         async function initAudio() {
             await Tone.start();
-            
-            // Gentle chime synth for interactions
             chimeSynth = new Tone.PolySynth(Tone.Synth, {
                 oscillator: { type: "sine" },
-                envelope: { 
-                    attack: 0.02, 
-                    decay: 0.3, 
-                    sustain: 0.1, 
-                    release: 2 
-                },
+                envelope: { attack: 0.02, decay: 0.3, sustain: 0.1, release: 2 },
                 volume: -10
             }).toDestination();
             
-            // Add reverb for dreamy effect
-            const reverb = new Tone.Reverb({ 
-                decay: 5, 
-                wet: 0.4 
-            }).toDestination();
-            
-            const delay = new Tone.FeedbackDelay("8n", 0.3).toDestination();
-            
+            const reverb = new Tone.Reverb({ decay: 5, wet: 0.4 }).toDestination();
             chimeSynth.connect(reverb);
-            chimeSynth.connect(delay);
-            
-            // Ambient pad synth for background
-            ambientSynth = new Tone.PolySynth(Tone.AMSynth, {
-                harmonicity: 2,
-                oscillator: { type: "sine" },
-                envelope: {
-                    attack: 1,
-                    decay: 2,
-                    sustain: 1,
-                    release: 3
-                },
-                modulation: {
-                    type: "square",
-                    modulationIndex: 0.5
-                },
-                volume: -20
-            }).toDestination();
-            
-            ambientSynth.connect(reverb);
             
             isAudioReady = true;
+            playChime(['C4', 'E4', 'G4']);
+        }
+
+        function playChime(notes) {
+            if (isAudioReady) chimeSynth.triggerAttackRelease(notes, "4n");
+        }
+
+        // YouTube
+        function onYouTubeIframeAPIReady() {
+            ytPlayer = new YT.Player('player', {
+                height: '150',
+                width: '100%',
+                videoId: 'xyUQKDE57Ag',
+                playerVars: { 'playsinline': 1, 'controls': 1 }
+            });
+        }
+
+        // UI
+        document.getElementById('startBtn').addEventListener('click', () => {
+            initAudio();
+            document.getElementById('startOverlay').style.opacity = '0';
+            setTimeout(() => document.getElementById('startOverlay').style.display = 'none', 500);
+        });
+
+        // Butterfly
+        document.getElementById('butterflyBtn').addEventListener('click', () => {
+            popupOpen = !popupOpen;
+            document.getElementById('musicPopup').classList.toggle('active', popupOpen);
+            document.getElementById('playIcon').textContent = popupOpen ? '❚❚' : '▶';
             
-            // Play gentle welcome chime
-            playGentleChime(['C4', 'E4', 'G4']);
-        }
-
-        function playGentleChime(notes) {
-            if (isAudioReady && chimeSynth) {
-                chimeSynth.triggerAttackRelease(notes, "4n");
+            if (ytPlayer) {
+                if (popupOpen) ytPlayer.playVideo();
+                else ytPlayer.pauseVideo();
             }
-        }
+            playChime(['C5', 'E5']);
+        });
 
-        function playSoftBell() {
-            if (isAudioReady && chimeSynth) {
-                chimeSynth.triggerAttackRelease(["C5", "E5"], "8n");
+        document.getElementById('closeMusic').addEventListener('click', (e) => {
+            e.stopPropagation();
+            popupOpen = false;
+            document.getElementById('musicPopup').classList.remove('active');
+            document.getElementById('playIcon').textContent = '▶';
+            if (ytPlayer) ytPlayer.pauseVideo();
+        });
+
+        // Clown Box
+        const clownBox = document.getElementById('clownBox');
+        const clownClosed = document.getElementById('clownClosed');
+        const clownOpen = document.getElementById('clownOpen');
+        let isClownOpen = false;
+
+        clownBox.addEventListener('click', (e) => {
+            if (e.target.id === 'closeClownMsg' || isClownOpen) return;
+            isClownOpen = true;
+            clownClosed.style.display = 'none';
+            clownOpen.classList.remove('hidden');
+            playChime(['C4', 'E4', 'G4', 'C5']);
+        });
+
+        document.getElementById('closeClownMsg').addEventListener('click', (e) => {
+            e.stopPropagation();
+            isClownOpen = false;
+            clownOpen.classList.add('hidden');
+            clownClosed.style.display = 'block';
+            playChime(['G4', 'E4']);
+        });
+
+        // Heart
+        const bigHeart = document.getElementById('bigHeart');
+        const heartHealth = document.getElementById('heartHealth');
+        let clicks = 0;
+        let isBroken = false;
+
+        document.getElementById('bigHeartContainer').addEventListener('click', (e) => {
+            if (isBroken) return;
+            clicks++;
+            
+            bigHeart.style.transform = `scale(${1 + (clicks * 0.05)}) rotate(${Math.random() * 10 - 5}deg)`;
+            setTimeout(() => { if (!isBroken) bigHeart.style.transform = 'scale(1)'; }, 100);
+
+            const notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5', 'D5', 'E5'];
+            playChime([notes[Math.min(clicks - 1, notes.length - 1)]]);
+
+            heartHealth.style.width = `${100 - (clicks / 10) * 100}%`;
+
+            if (clicks >= 10) {
+                isBroken = true;
+                bigHeart.style.display = 'none';
+                heartHealth.parentElement.style.display = 'none';
+                playChime(['C4', 'E4', 'G4', 'C5', 'E5', 'G5']);
+                
+                const emojis = ['❤️', '💖', '💗', '💓', '💕', '😍', '💘'];
+                for (let i = 0; i < 30; i++) {
+                    const el = document.createElement('div');
+                    el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                    el.className = 'particle';
+                    const angle = Math.random() * Math.PI * 2;
+                    const velocity = 100 + Math.random() * 200;
+                    el.style.setProperty('--dx', Math.cos(angle) * velocity + 'px');
+                    el.style.setProperty('--dy', Math.sin(angle) * velocity + 'px');
+                    el.style.left = e.clientX + 'px';
+                    el.style.top = e.clientY + 'px';
+                    document.body.appendChild(el);
+                    setTimeout(() => el.remove(), 1000);
+                }
+                
+                const msg = document.createElement('div');
+                msg.innerText = "You broke my heart... with love! 💖";
+                msg.className = "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-pink-300 whitespace-nowrap animate-bounce";
+                document.getElementById('bigHeartContainer').appendChild(msg);
             }
-        }
-
-        function playWarmChord() {
-            if (isAudioReady && ambientSynth) {
-   
+        });
+    </script>
+</body>
+                    </html>
